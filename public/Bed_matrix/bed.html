@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bed Matrix - IHMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .available {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .limited {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .full {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hospital Bed Matrix</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Hospital</th>
+                <th>Emergency Dept</th>
+                <th>ICU</th>
+                <th>CCU</th>
+                <th>Surgical Ward</th>
+                <th>General Medicine</th>
+                <th>Pediatrics</th>
+                <th>OB/GYN</th>
+                <th>Orthopedics</th>
+                <th>Neurology</th>
+                <th>Oncology</th>
+                <th>Geriatrics</th>
+                <th>Recovery Room</th>
+                <th>Dialysis Unit</th>
+                <th>Isolation Ward</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hospital A</td>
+                <td class="available">10/12</td>
+                <td class="limited">5/8</td>
+                <td class="full">0/4</td>
+                <td class="available">15/20</td>
+                <td class="available">25/30</td>
+                <td class="limited">7/10</td>
+                <td class="available">12/15</td>
+                <td class="full">0/6</td>
+                <td class="available">8/10</td>
+                <td class="limited">6/10</td>
+                <td class="available">20/25</td>
+                <td class="available">5/6</td>
+                <td class="full">1/2</td>
+                <td class="available">9/10</td>
+            </tr>
+            <tr>
+                <td>Hospital B</td>
+                <td class="limited">6/12</td>
+                <td class="available">7/8</td>
+                <td class="available">2/4</td>
+                <td class="full">0/20</td>
+                <td class="limited">15/30</td>
+                <td class="available">9/10</td>
+                <td class="limited">8/15</td>
+                <td class="available">4/6</td>
+                <td class="limited">5/10</td>
+                <td class="available">7/10</td>
+                <td class="available">15/25</td>
+                <td class="limited">3/6</td>
+                <td class="full">0/2</td>
+                <td class="available">8/10</td>
+            </tr>
+            <tr>
+                <td>Hospital C</td>
+                <td class="available">8/12</td>
+                <td class="available">6/8</td>
+                <td class="limited">3/4</td>
+                <td class="available">14/20</td>
+                <td class="limited">18/30</td>
+                <td class="available">10/10</td>
+                <td class="limited">9/15</td>
+                <td class="available">5/6</td>
+                <td class="available">7/10</td>
+                <td class="limited">5/10</td>
+                <td class="available">18/25</td>
+                <td class="available">4/6</td>
+                <td class="full">0/2</td>
+                <td class="available">7/10</td>
+            </tr>
+            <tr>
+                <td>Hospital D</td>
+                <td class="full">1/12</td>
+                <td class="limited">4/8</td>
+                <td class="available">2/4</td>
+                <td class="available">11/20</td>
+                <td class="limited">22/30</td>
+                <td class="available">6/10</td>
+                <td class="limited">10/15</td>
+                <td class="available">3/6</td>
+                <td class="full">2/10</td>
+                <td class="available">8/10</td>
+                <td class="limited">5/25</td>
+                <td class="full">1/6</td>
+                <td class="available">7/10</td>
+            </tr>
+            <tr>
+                <td>Hospital E</td>
+                <td class="available">12/12</td>
+                <td class="available">8/8</td>
+                <td class="available">4/4</td>
+                <td class="available">20/20</td>
+                <td class="available">30/30</td>
+                <td class="available">10/10</td>
+                <td class="available">15/15</td>
+                <td class="available">6/6</td>
+                <td class="available">10/10</td>
+                <td class="available">10/10</td>
+                <td class="available">25/25</td>
+                <td class="available">6/6</td>
+                <td class="available">10/10</td>
+            </tr>
+            <tr>
+                <td>Hospital F</td>
+                <td class="limited">5/12</td>
+                <td class="full">0/8</td>
+                <td class="available">3/4</td>
+                <td class="limited">8/20</td>
+                <td class="available">16/30</td>
+                <td class="limited">5/10</td>
+                <td class="available">11/15</td>
+                <td class="limited">2/6</td>
+                <td class="available">6/10</td>
+                <td class="limited">4/10</td>
+                <td class="available">18/25</td>
+                <td class="full">0/6</td>
+                <td class="available">6/10</td>
+            </tr>
+            <tr>
+                <td>Hospital G</td>
+                <td class="available">9/12</td>
+                <td class="available">7/8</td>
+                <td class="limited">2/4</td>
+                <td class="available">13/20</td>
+                <td class="limited">20/30</td>
+                <td class="available">8/10</td>
+                <td class="limited">7/15</td>
+                <td class="available">4/6</td>
+                <td class="available">5/10</td>
+                <td class="limited">6/10</td>
+                <td class="available">22/25</td>
+                <td class="limited">2/6</td>
+                <td class="available">8/10</td>
+            </tr>
+            <tr>
+                <td>Hospital H</td>
+                <td class="limited">4/12</td>
+                <td class="available">6/8</td>
+                <td class="full">0/4</td>
+                <td class="limited">9/20</td>
+                <td class="available">17/30</td>
+                <td class="limited">7/10</td>
+                <td class="available">10/15</td>
+                <td class="full">0/6</td>
+                <td class="limited">4/10</td>
+                <td class="available">7/10</td>
+                <td class="available">14/25</td>
+                <td class="limited">3/6</td>
+                <td class="full">0/2</td>
+            </tr>
+            <tr>
+                <td>Hospital I</td>
+                <td class="available">11/12</td>
+                <td class="limited">5/8</td>
+                <td class="available">3/4</td>
+                <td class="available">16/20</td>
+                <td class="available">24/30</td>
+                <td class="available">9/10</td>
+                <td class="limited">8/15</td>
+                <td class="available">5/6</td>
+                <td class="available">7/10</td>
+                <td class="limited">6/10</td>
+                <td class="available">20/25</td>
+                <td class="available">5/6</td>
+                <td class="available">9/10</td>
+            </tr>
+            <tr>
+                <td>Hospital J</td>
+                <td class="available">10/12</td>
+                <td class="limited">4/8</td>
+                <td class="available">2/4</td>
+                <td class="limited">12/20</td>
+                <td class="available">21/30</td>
+                <td class="available">7/10</td>
+                <td class="limited">9/15</td>
+                <td class="available">4/6</td>
+                <td class="limited">5/10</td>
+                <td class="available">8/10</td>
+                <td class="available">17/25</td>
+                <td class="limited">4/6</td>
+                <td class="available">7/10</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

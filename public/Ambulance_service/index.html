@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance Service | Hospital Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #dc3545;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .request-container {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .request-container h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .request-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .request-btn:hover {
+            background-color: #218838;
+        }
+
+        .map-container {
+            flex: 1;
+            height: 500px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Ambulance Service</h1>
+    </div>
+
+    <div class="main-container">
+        <!-- Ambulance Request Form -->
+        <div class="request-container">
+            <h2>Request an Ambulance</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Pick-up Location</label>
+                    <input type="text" id="location" placeholder="Enter pick-up location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="condition">Medical Condition</label>
+                    <select id="condition" required>
+                        <option value="General">General Condition</option>
+                        <option value="Critical">Critical Condition</option>
+                        <option value="Accident">Accident/Emergency</option>
+                        <option value="Pregnancy">Pregnancy</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="request-btn">Request Ambulance</button>
+            </form>
+        </div>
+
+        <!-- Map and Ambulance Location -->
+        <!-- <div class="map-container" id="map">
+            Google Map will be embedded here -->
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.086092544644!2d77.20747017528656!3d28.567177375700528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce26f903969d7%3A0x8367180c6de2ecc2!2sAll%20India%20Institute%20Of%20Medical%20Sciences%20Delhi!5e0!3m2!1sen!2sin!4v1726584603609!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>  -->
+    </div>
+
+    <!-- Google Maps API Script -->
+    <script>
+        function initMap() {
+            const hospitalLocation = { lat: 28.6139, lng: 77.2090 }; // Delhi, India (example)
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: hospitalLocation
+            });
+
+            // Example ambulance locations
+            const ambulances = [
+                { lat: 28.7041, lng: 77.1025 },
+                { lat: 28.5355, lng: 77.3910 },
+                { lat: 28.4595, lng: 77.0266 }
+            ];
+
+            // Adding markers for ambulances
+            ambulances.forEach(location => {
+                new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/ambulance.png',
+                    title: 'Ambulance'
+                });
+            });
+        }
+    </script>
+
+    <!-- Google Maps API -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+
+</body>
+
+</html>

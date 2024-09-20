@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHMS Hospital Laboratory Equipment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        
+        .search-bar input {
+            width: 50%;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #d0f8ce;
+            /* Light green background */
+        }
+        
+        .category h2 {
+            cursor: pointer;
+            font-size: 1.8em;
+            margin: 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #00796b;
+            color: white;
+        }
+        
+        .consumables {
+            display: none;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .consumables a {
+            display: block;
+            margin: 5px 0;
+            color: #00796b;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            /* Smooth hover transition */
+        }
+        /* Hover effect for each equipment link */
+        
+        .consumables a:hover {
+            background-color: #b2dfdb;
+            /* Light teal on hover */
+            color: #004d40;
+            /* Darker green on hover */
+        }
+        
+        footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>IHMS Hospital - Laboratory Equipment</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchBar" placeholder="Search for consumables...">
+        </div>
+
+        <div class="category glassware">
+            <h2 onclick="toggleCategory('glassware')">Glassware and Plasticware</h2>
+            <div class="consumables" id="glassware">
+                <a href="details.html?item=Test%20Tubes">Test Tubes</a>
+                <a href="details.html?item=Petri%20Dishes">Petri Dishes</a>
+                <a href="details.html?item=Beakers%20and%20Flasks">Beakers and Flasks</a>
+                <a href="details.html?item=Pipettes%20and%20Pipette%20Tips">Pipettes and Pipette Tips</a>
+            </div>
+        </div>
+
+        <div class="category instruments">
+            <h2 onclick="toggleCategory('instruments')">Laboratory Instruments</h2>
+            <div class="consumables" id="instruments">
+                <a href="details.html?item=Centrifuge">Centrifuge</a>
+                <a href="details.html?item=Microscopes">Microscopes</a>
+                <a href="details.html?item=Spectrophotometer">Spectrophotometer</a>
+            </div>
+        </div>
+
+        <div class="category diagnostic">
+            <h2 onclick="toggleCategory('diagnostic')">Diagnostic Kits and Reagents</h2>
+            <div class="consumables" id="diagnostic">
+                <a href="details.html?item=Blood%20Collection%20Tubes">Blood Collection Tubes</a>
+                <a href="details.html?item=Reagents">Reagents</a>
+                <a href="details.html?item=Urine%20Collection%20Kits">Urine Collection Kits</a>
+            </div>
+        </div>
+
+        <div class="category sterilization">
+            <h2 onclick="toggleCategory('sterilization')">Sterilization Supplies</h2>
+            <div class="consumables" id="sterilization">
+                <a href="details.html?item=Autoclave%20Bags">Autoclave Bags</a>
+                <a href="details.html?item=Sterile%20Swabs">Sterile Swabs</a>
+                <a href="details.html?item=Disinfectants">Disinfectants</a>
+            </div>
+        </div>
+
+        <div class="category protective">
+            <h2 onclick="toggleCategory('protective')">Protective Gear</h2>
+            <div class="consumables" id="protective">
+                <a href="details.html?item=Gloves">Gloves</a>
+                <a href="details.html?item=Lab%20Coats%20and%20Aprons">Lab Coats and Aprons</a>
+                <a href="details.html?item=Face%20Masks%20and%20Goggles">Face Masks and Goggles</a>
+            </div>
+        </div>
+
+        <div class="category measuring">
+            <h2 onclick="toggleCategory('measuring')">Measuring and Weighing Equipment</h2>
+            <div class="consumables" id="measuring">
+                <a href="details.html?item=Balances%20and%20Scales">Balances and Scales</a>
+                <a href="details.html?item=Measuring%20Cylinders">Measuring Cylinders</a>
+            </div>
+        </div>
+
+        <div class="category miscellaneous">
+            <h2 onclick="toggleCategory('miscellaneous')">Miscellaneous Supplies</h2>
+            <div class="consumables" id="miscellaneous">
+                <a href="details.html?item=Test%20Tube%20Racks">Test Tube Racks</a>
+                <a href="details.html?item=pH%20Strips">pH Strips</a>
+                <a href="details.html?item=Parafilm">Parafilm</a>
+            </div>
+        </div>
+
+        <div class="category storage">
+            <h2 onclick="toggleCategory('storage')">Sample Storage</h2>
+            <div class="consumables" id="storage">
+                <a href="details.html?item=Cryogenic%20Vials">Cryogenic Vials</a>
+                <a href="details.html?item=Refrigerators%20and%20Freezers">Refrigerators and Freezers</a>
+            </div>
+        </div>
+        <div>
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hospital Warehouse Management</p>
+    </footer>
+
+    <script>
+        function toggleCategory(id) {
+            const category = document.getElementById(id);
+            category.style.display = category.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.getElementById('searchBar').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const consumables = document.querySelectorAll('.consumables a');
+            consumables.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

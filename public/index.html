@@ -1,0 +1,133 @@
+ <!DOCTYPE html>
+<html lang="en"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Healthcare Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <!-- Logo on the left -->
+            <div class="logo">
+                <img src="Integrated Healthcare.png" alt="IHMS Logo" />
+            </div>
+            <!-- Navigation on the right -->
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                   <!-- <li><a href="#live-status">Live Status</a></li>-->
+                    <li><a href="Healthid/health.html">Health ID</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Login button -->
+            <div class="blinking">
+                <button id="Emergency" onclick="red()">Emergency</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="services">
+            <div class="container1">
+                <h2>Services</h2>
+                <div class="services-list">
+
+                    <div class="service-box">
+                        <img src="Online_OPD.jpg" alt="OnlineOPD" class="Service-img"><br>
+                        <a href="Online_OPD/public/index.html">Online OPD</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="in-patient.jpg" alt="inpatientDepartment" class="Service-img"><br>
+                        <a href="inpatient_dep/index.html">In-Patient Department</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="onileappointmentlogo.jpg" alt="Appointment" class="Service-img"><br>
+                        <a href="online_appointment/index.html">Online Appointment Booking</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="GPS.jpg" alt="GPS Tracking System" class="Service-img"><br>
+                        <a href="gps_tracking_system/index.html">GPS Tracking System</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="Health-care-assistant.jpg" alt="Healthcareassistant" class="Service-img"><br>
+                        <a href="https://page.botpenguin.com/66ddcb9c2ba90121e1c07d7f/66ddcb738014ed2ba721c222">Meddy! Healthcare Assistant</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="Medical-department.jpg" alt="medicaldepartment" class="Service-img"><br>
+                        <a href="our_medical_dept/index.html">Our Medical Department</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="Drug-section.jpg" alt="Drugsection" class="Service-img"><br>
+                        <a href="Medicine_store/public/index.html">Drug Section</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="e-prescriptionlogo.jpg" alt=" e-prescriptionlogo" class="Service-img"><br>
+                        <a href="E-prescription/prescription.html">E-prescription</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="real_time_monitering.jpg" alt="Realtimemonitering" class="Service-img"><br>
+                        <a href="Real_time_monitering/index.html">Realtime Monitering</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="ambulance.jpg" alt="Ambulance" class="Service-img"><br>
+                        <a href="Ambulance_service/index.html">Ambulance Service 24/7</a>
+                    </div>
+                    
+                    <div class="service-box">
+                        <img src="Warehouse.jpg" alt="Warehouse" class="Service-img"><br>
+                        <a href="ware_house/index.html">Warehouse</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="patient-matrix.png" alt="Patientmatix" class="Service-img"><br>
+                        <a href="patient_matrix/patient.html">Patient Matrix</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="Bed-Matrix.png" alt="Bedmatrix" class="Service-img"><br>
+                        <a href="Bed_matrix/bed.html">Bed Matrix</a>
+                    </div>
+                    
+                    <div class="service-box">
+                        <img src="mobile-app.jpg" alt="Mobile App" class="Service-img"><br>
+                        <a href="mobileapp.html">Our Mobile App</a>
+                    </div>
+                    
+                    <div class="service-box">
+                        <img src="vitualconsultantlogo.jpg" alt="customersupport" class="Service-img"><br>
+                        <a href="costomber_support/cs.html">Customer Support</a>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Integrated Healthcare Management System | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        // alert("Login SuccessFull");
+      function startBlinking() {
+    const element = document.querySelector('.blinking');
+    element.style.visibility = element.style.visibility === 'hidden' ? 'visible' : 'hidden';
+}
+
+setInterval(startBlinking, 1000);  // Change the interval as per need
+    function red(){
+        window.location.href = 'Emergency/emergency.html';
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imaging and Radiology Module</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        main {
+            margin-top: 20px;
+        }
+        
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .column>div {
+            margin-bottom: 20px;
+        }
+        
+        .upload-section input[type="file"],
+        .upload-section input[type="text"] {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .upload-section button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .upload-section button:hover {
+            background-color: #218838;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .image-gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .image-gallery img:hover {
+            border-color: #007bff;
+        }
+        
+        .image-viewer img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .reporting-section {
+            text-align: center;
+        }
+        
+        .reporting-section button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .reporting-section button:hover {
+            background-color: #0056b3;
+        }
+        
+        .search-section input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .search-section button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .search-section button:hover {
+            background-color: #0056b3;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Imaging and Radiology Module</h1>
+        </header>
+        <main>
+            <!-- Upload and Management Section -->
+            <section class="upload-section">
+                <h2>1. Image Upload and Management</h2>
+                <input type="file" id="fileInput" multiple accept="image/*,application/pdf">
+                <input type="text" id="patientId" placeholder="Patient ID">
+                <input type="text" id="examDate" placeholder="Date of Exam">
+                <input type="text" id="imagingType" placeholder="Type of Imaging">
+                <input type="text" id="referringPhysician" placeholder="Referring Physician">
+                <button onclick="uploadImages()">Upload</button>
+                <div id="uploadStatus"></div>
+            </section>
+
+            <!-- Image Viewing Section -->
+            <section class="image-viewing">
+                <h2>2. Image Viewing</h2>
+                <div id="gallery" class="image-gallery"></div>
+                <div id="imageViewer" class="image-viewer">
+                    <img id="viewer" src="" alt="Selected Image">
+                    <p id="imageDetails"></p>
+                </div>
+            </section>
+
+            <!-- Reporting and Analysis Section -->
+            <section class="reporting-section">
+                <h2>3. Reporting and Analysis</h2>
+                <button onclick="generateReport()">Generate Report</button>
+                <div id="reportOutput"></div>
+            </section>
+
+            <!-- Patient Management Section -->
+            <section class="patient-management">
+                <h2>4. Patient Management</h2>
+                <input type="text" id="searchPatient" placeholder="Search Patient Records">
+                <button onclick="searchPatient()">Search</button>
+                <div id="patientRecords"></div>
+            </section>
+
+            <!-- Integration and Interoperability Section -->
+            <section class="integration-section">
+                <h2>5. Integration and Interoperability</h2>
+                <p>DICOM Support, HL7 Integration, and EHR Integration features are being implemented.</p>
+            </section>
+
+            <!-- Security and Compliance Section -->
+            <section class="security-section">
+                <h2>6. Security and Compliance</h2>
+                <p>Access Controls, Data Encryption, and Audit Trails are in place for compliance and security.</p>
+            </section>
+
+            <!-- Collaboration and Communication Section -->
+            <section class="collaboration-section">
+                <h2>7. Collaboration and Communication</h2>
+                <p>Consultation Tools and Review Workflow features are under development.</p>
+            </section>
+
+            <!-- Advanced Features Section -->
+            <section class="advanced-section">
+                <h2>8. Advanced Features</h2>
+                <p>3D Imaging, Machine Learning Integration, and Mobile Access are in progress.</p>
+            </section>
+
+            <!-- User Experience Enhancements Section -->
+            <section class="user-experience-section">
+                <h2>9. User Experience Enhancements</h2>
+                <p>Customizable Layout, Search Functionality, and Performance Optimization are being improved.</p>
+            </section>
+
+            <!-- Training and Support Section -->
+            <section class="training-section">
+                <h2>10. Training and Support</h2>
+                <p>User Guides and Technical Support information will be available soon.</p>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 IHMS Portal</p>
+        </footer>
+    </div>
+    <script>
+        // Handle image upload and display
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const files = this.files;
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                img.title = file.name;
+                img.addEventListener('click', () => viewImage(img.src, file.name));
+                gallery.appendChild(img);
+            }
+        });
+
+        function viewImage(src, name) {
+            const viewer = document.getElementById('viewer');
+            const details = document.getElementById('imageDetails');
+            viewer.src = src;
+            details.textContent = `Image Name: ${name}`;
+        }
+
+        // Handle image upload
+        function uploadImages() {
+            const fileInput = document.getElementById('fileInput');
+            const uploadStatus = document.getElementById('uploadStatus');
+            const patientId = document.getElementById('patientId').value;
+            const examDate = document.getElementById('examDate').value;
+            const imagingType = document.getElementById('imagingType').value;
+            const referringPhysician = document.getElementById('referringPhysician').value;
+
+            if (fileInput.files.length === 0) {
+                uploadStatus.textContent = 'No files selected.';
+                return;
+            }
+
+            // Simulate a successful upload
+            uploadStatus.textContent = 'Images uploaded successfully!';
+            console.log(`Patient ID: ${patientId}, Exam Date: ${examDate}, Imaging Type: ${imagingType}, Referring Physician: ${referringPhysician}`);
+        }
+
+        // Generate a dummy report
+        function generateReport() {
+            const reportOutput = document.getElementById('reportOutput');
+            reportOutput.innerHTML = '<p>Report generated successfully. Integration with radiology reporting systems is needed.</p>';
+        }
+
+        // Search patient records (dummy implementation)
+        function searchPatient() {
+            const searchValue = document.getElementById('searchPatient').value;
+            const patientRecords = document.getElementById('patientRecords');
+            patientRecords.innerHTML = `<p>Search results for: ${searchValue}. (Integration with patient records database is needed.)</p>`;
+        }
+    </script>
+</body>
+
+</html>

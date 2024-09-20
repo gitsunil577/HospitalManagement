@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    padding-top: 25rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #007BFF;
+}
+
+header p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.appointment-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Book an Appointment</h1>
+            <p>Select your preferred doctor, date, and time for your appointment</p>
+        </header>
+        
+        <form class="appointment-form">
+            <div class="form-group">
+                <label for="patient-name">Patient Name</label>
+                <input type="text" id="patient-name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="doctor">Choose Doctor</label>
+                <select id="doctor" required>
+                    <option value="" disabled selected>Select Doctor</option>
+                    <option value="dr-smith">Dr. Smith (Cardiologist)</option>
+                    <option value="dr-jane">Dr. Jane (Dermatologist)</option>
+                    <option value="dr-john">Dr. John (Pediatrician)</option>
+                    <option value="dr-kelly">Dr. Kelly (Neurologist)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Appointment Date</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Appointment Time</label>
+                <input type="time" id="time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Reason for Appointment</label>
+                <textarea id="message" placeholder="Enter the reason for your visit" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Book Appointment</button>
+        </form>
+    </div>
+</body>
+</html>

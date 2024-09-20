@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Prescription</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #8db9e4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 30px;
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            border-radius: 5px;
+        }
+        .prescription-table th, .prescription-table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">E-Prescription</h2>
+        <form id="ePrescriptionForm">
+            <!-- Patient Selection -->
+            <div class="form-group">
+                <label for="patient">Patient Name</label>
+                <select class="form-control" id="patient" name="patient">
+                    <option value="" selected disabled>Select Patient</option>
+                    <option value="1">John Doe</option>
+                    <option value="2">Jane Smith</option>
+                    <!-- Additional patient options fetched from the database -->
+                </select>
+            </div>
+
+            <!-- Doctor Information -->
+            <div class="form-group">
+                <label for="doctor">Doctor Name</label>
+                <input type="text" class="form-control" id="doctor" name="doctor" readonly value="Dr. Sarah Connor">
+            </div>
+
+            <!-- Diagnosis -->
+            <div class="form-group">
+                <label for="diagnosis">Diagnosis</label>
+                <textarea class="form-control" id="diagnosis" name="diagnosis" rows="3"></textarea>
+            </div>
+
+            <!-- Prescription Details -->
+            <div class="form-group">
+                <label for="medicines">Medicines</label>
+                <textarea class="form-control" id="medicines" name="medicines" rows="3" placeholder="e.g., Paracetamol 500mg, 3 times a day"></textarea>
+            </div>
+
+            <!-- Add Medicines Dynamically (Optional) -->
+            <table class="table table-bordered prescription-table">
+                <thead>
+                    <tr>
+                        <th>Medicine Name</th>
+                        <th>Dosage</th>
+                        <th>Frequency</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody id="prescriptionTableBody">
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Medicine name" /></td>
+                        <td><input type="text" class="form-control" placeholder="Dosage" /></td>
+                        <td>
+                            <select class="form-control">
+                                <option>Once a day</option>
+                                <option>Twice a day</option>
+                                <option>Three times a day</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Duration (e.g., 5 days)" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" onclick="addMedicineRow()">Add Another Medicine</button>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-success mt-3">Submit Prescription</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Function to dynamically add medicine row
+        function addMedicineRow() {
+            const tableBody = document.getElementById('prescriptionTableBody');
+            const newRow = `<tr>
+                <td><input type="text" class="form-control" placeholder="Medicine name" /></td>
+                <td><input type="text" class="form-control" placeholder="Dosage" /></td>
+                <td>
+                    <select class="form-control">
+                        <option>Once a day</option>
+                        <option>Twice a day</option>
+                        <option>Three times a day</option>
+                    </select>
+                </td>
+                <td><input type="text" class="form-control" placeholder="Duration (e.g., 5 days)" /></td>
+            </tr>`;
+            tableBody.insertAdjacentHTML('beforeend', newRow);
+        }
+
+        // Form submission (you'll want to handle this with Node.js for backend processing)
+        document.getElementById('ePrescriptionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Prescription submitted successfully!");
+            // Perform an AJAX request to save the prescription data in the database
+        });
+    </script>
+</body>
+</html>

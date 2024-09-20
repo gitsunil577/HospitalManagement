@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Equipment Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        
+        .search-bar input {
+            width: 50%;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+        }
+        
+        .inventory-table {
+            width: 90%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        
+        .inventory-table th,
+        .inventory-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .inventory-table th {
+            background-color: #00796b;
+            color: white;
+        }
+        
+        .inventory-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .inventory-table tr:hover {
+            background-color: #ddd;
+        }
+        
+        footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Medical Equipment Inventory</h1>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" onkeyup="filterTools()" placeholder="Search for medical tools...">
+    </div>
+
+    <table class="inventory-table" id="toolTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Supply Receive Date</th>
+                <th>Available in Stock</th>
+                <th>Equipment in Use</th>
+                <th>Non-functional Product</th>
+                <th>Requirement</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-name="Stethoscope">
+                <td>Stethoscope</td>
+                <td>2023-06-15</td>
+                <td>15</td>
+                <td>8</td>
+                <td>2</td>
+                <td>5</td>
+            </tr>
+            <tr data-name="Blood Pressure Monitor">
+                <td>Blood Pressure Monitor</td>
+                <td>2023-07-10</td>
+                <td>20</td>
+                <td>12</td>
+                <td>3</td>
+                <td>5</td>
+            </tr>
+            <tr data-name="Thermometer">
+                <td>Thermometer</td>
+                <td>2023-05-22</td>
+                <td>50</td>
+                <td>35</td>
+                <td>5</td>
+                <td>10</td>
+            </tr>
+            <tr data-name="Pulse Oximeter">
+                <td>Pulse Oximeter</td>
+                <td>2023-08-01</td>
+                <td>30</td>
+                <td>18</td>
+                <td>6</td>
+                <td>6</td>
+            </tr>
+            <tr data-name="Surgical Scissors">
+                <td>Surgical Scissors</td>
+                <td>2023-06-12</td>
+                <td>40</td>
+                <td>25</td>
+                <td>4</td>
+                <td>11</td>
+            </tr>
+            <tr data-name="Gowns and Scrubs">
+                <td>Gowns and Scrubs</td>
+                <td>2023-05-15</td>
+                <td>150</td>
+                <td>80</td>
+                <td>10</td>
+                <td>60</td>
+            </tr>
+
+
+            <tr data-name="Forceps"></tr>
+            <td>Forceps</td>
+            <td>2023-09-01</td>
+            <td>25</td>
+            <td>15</td>
+            <td>2</td>
+            <td>8</td>
+            </tr>
+            <tr data-name="Scalpel">
+                <td>Scalpel</td>
+                <td>2023-04-20</td>
+                <td>35</td>
+                <td>20</td>
+                <td>3</td>
+                <td>12</td>
+            </tr>
+            <tr data-name="Ventilator">
+                <td>Ventilator</td>
+                <td>2023-03-05</td>
+                <td>10</td>
+                <td>7</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr data-name="ECG Machine">
+                <td>ECG Machine</td>
+                <td>2023-08-15</td>
+                <td>12</td>
+                <td>6</td>
+                <td>2</td>
+                <td>4</td>
+            </tr>
+            <tr data-name="Autoclave">
+                <td>Autoclave</td>
+                <td>2023-01-25</td>
+                <td>8</td>
+                <td>5</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr data-name="Syringes and Needles">
+                <td>Syringes and Needles</td>
+                <td>2023-02-14</td>
+                <td>200</td>
+                <td>100</td>
+                <td>10</td>
+                <td>90</td>
+            </tr>
+            <tr data-name="IV Set">
+                <td>IV Set</td>
+                <td>2023-05-19</td>
+                <td>50</td>
+                <td>25</td>
+                <td>5</td>
+                <td>20</td>
+            </tr>
+            <tr data-name="Catheter">
+                <td>Catheter</td>
+                <td>2023-06-08</td>
+                <td>30</td>
+                <td>15</td>
+                <td>4</td>
+                <td>11</td>
+            </tr>
+            <tr data-name="Ultrasound Machine">
+                <td>Ultrasound Machine</td>
+                <td>2023-07-12</td>
+                <td>5</td>
+                <td>3</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr data-name="X-Ray Machine">
+                <td>X-Ray Machine</td>
+                <td>2023-09-20</td>
+                <td>6</td>
+                <td>4</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr data-name="Patient Monitor">
+                <td>Patient Monitor</td>
+                <td>2023-03-30</td>
+                <td>10</td>
+                <td>6</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr data-name="Infusion Pump">
+                <td>Infusion Pump</td>
+                <td>2023-02-25</td>
+                <td>7</td>
+                <td>4</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr data-name="Gloves">
+                <td>Gloves</td>
+                <td>2023-01-05</td>
+                <td>500</td>
+                <td>300</td>
+                <td>50</td>
+                <td>150</td>
+            </tr>
+            <tr data-name="Face Masks and Shields">
+                <td>Face Masks and Shields</td>
+                <td>2023-04-01</td>
+                <td>400</td>
+                <td>250</td>
+                <td>30</td>
+                <td>120</td>
+            </tr>
+            <div style="text-align: center; margin: 20px;">
+                <a href="../index.html" style="text-decoration: none; background-color: #00796b; color: white; padding: 10px 20px; border-radius: 5px; font-size: 1.2em;">Back to Home</a>
+            </div>
+        </tbody>
+
+    </table>
+
+
+    <footer>
+        <p>&copy; 2024 Hospital Warehouse Management</p>
+    </footer>
+
+    <!-- JavaScript to filter the table based on search -->
+    <script>
+        function filterTools() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('toolTable');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i];
+                const nameCell = row.getElementsByTagName('td')[0]; // The name is in the first cell of each row
+
+                if (nameCell) {
+                    const name = nameCell.textContent || nameCell.innerText;
+
+                    if (name.toLowerCase().includes(filter)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

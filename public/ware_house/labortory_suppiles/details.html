@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumable Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f4f4f4;
+        }
+        
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Consumable Details</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Supply Receive Date</th>
+                <th>Expiry Date</th>
+                <th>Requirement</th>
+                <th>Availability</th>
+            </tr>
+            <tr>
+                <td id="name">Consumable Name</td>
+                <td id="receiveDate">---</td>
+                <td id="expiryDate">---</td>
+                <td id="requirement">---</td>
+                <td id="availability">---</td>
+            </tr>
+        </table>
+
+        <a href="../index.html">Back to Home</a>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const itemName = getQueryParam('item');
+            document.getElementById('name').textContent = itemName;
+
+            // Example static data for demonstration
+            document.getElementById('receiveDate').textContent = '2024-01-01';
+            document.getElementById('expiryDate').textContent = '2025-01-01';
+            document.getElementById('requirement').textContent = 'In Stock';
+            document.getElementById('availability').textContent = 'Available';
+
+            // You would typically fetch these details from a server or database based on itemName
+            // For example, you could use fetch() to get data from an API
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "medicine_store",
+  "version": "1.0.0",
+  "description": "This is medicine store with payment integration",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Sunil",
+  "license": "ISC"
+}

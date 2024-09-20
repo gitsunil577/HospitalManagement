@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Management System - Dashboard</title>
+    <link rel="stylesheet" href="dashboardstyle.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+     <div class="sidebar">
+        <h2>IHMS Dashboard</h2>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#appointments">Appointments</a></li>
+            <li><a href="#patients">Patients</a></li>
+            <li><a href="#reports">Reports</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Welcome, Dr. Emily Smith</h1>
+            <div class="user-info">
+                <span>Logged in as Doctor</span>
+            </div>
+        </header>
+
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2>Overview</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <h3>Total Patients</h3>
+                    <p id="total-patients">150</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Appointments Today</h3>
+                    <p id="appointments-today">10</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Revenue Generated</h3>
+                    <p id="revenue">$45,000</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments">
+            <h2>Appointments</h2>
+            <table>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Time</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>10:00 AM</td>
+                    <td>Follow-up</td>
+                    <td>Scheduled</td>
+                </tr>
+                <!-- Add more rows here as needed -->
+            </table>
+        </section>
+
+        <!-- Patients Section -->
+        <section id="patients">
+            <h2>Patient Records</h2>
+            <div class="patient-record">
+                <h3>John Doe</h3>
+                <p><strong>Age:</strong> 45</p>
+                <p><strong>Condition:</strong> Hypertension, Diabetes</p>
+                <p><strong>Next Appointment:</strong> 2024-10-15</p>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports">
+            <h2>Reports</h2>
+            <p>Generate and view detailed reports for hospital performance.</p>
+        </section>
+
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+    // Update Total Patients and other stats
+        const totalPatients = 150;
+        const appointmentsToday = 10;
+        const revenue = 45000;
+
+    document.getElementById('total-patients').textContent = totalPatients;
+    document.getElementById('appointments-today').textContent = appointmentsToday;
+    document.getElementById('revenue').textContent = `$${revenue}`;
+});
+
+    </script>
+</body>
+</html>

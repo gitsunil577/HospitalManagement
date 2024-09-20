@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHMS Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylelogpage.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+        <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcIcz0qAAAAAMsuYPoWYdM4Q8x403SHn2nShOX5"></script>
+        <!-- Your code -->
+      </head> <!-- Add Google reCAPTCHA -->
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login to IHMS</h2>
+            <form action="/login" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter Username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                </div>
+
+                <!-- CAPTCHA Section -->
+                <div class="input-group">
+                    <div class="g-recaptcha" data-sitekey="6LeX8j0qAAAAABctGSSWvIIav0pDG3zYZN0y_-t5"></div> <!-- Replace with your site key -->
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="signup-link">
+                Don't have an account? <a href="register.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.enterprise.ready(async () => {
+            const token = await grecaptcha.enterprise.execute('6LcIcz0qAAAAAMsuYPoWYdM4Q8x403SHn2nShOX5', {action: './login'});
+          });
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Queue Matrix - IHMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab button {
+            background-color: #f1f1f1;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .waiting {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .examining {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .discharged {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Patient Queue Matrix</h1>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Department')">Department Wise</button>
+            <button class="tablinks" onclick="openTab(event, 'OPD')">OPD Queue</button>
+        </div>
+
+        <div id="Department" class="tabcontent">
+            <h2>Department Wise Queue</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Department</th>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Estimated Wait Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Rows for Departments -->
+                    <!-- Emergency Department -->
+                    <tr><td>Emergency</td><td>001</td><td>John Doe</td><td class="waiting">Waiting</td><td>Urgent</td><td>10 mins</td></tr>
+                    <tr><td>Emergency</td><td>002</td><td>Jane Smith</td><td class="examining">Being Examined</td><td>Emergency</td><td>5 mins</td></tr>
+                    <!-- ICU Department -->
+                    <tr><td>ICU</td><td>003</td><td>David Johnson</td><td class="waiting">Waiting</td><td>Urgent</td><td>20 mins</td></tr>
+                    <tr><td>ICU</td><td>004</td><td>Emily Davis</td><td class="examining">Being Examined</td><td>Emergency</td><td>15 mins</td></tr>
+                    <!-- Cardiology Department -->
+                    <tr><td>Cardiology</td><td>005</td><td>Michael Brown</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Cardiology</td><td>006</td><td>Sarah Wilson</td><td class="waiting">Waiting</td><td>Routine</td><td>25 mins</td></tr>
+                    <!-- Neurology Department -->
+                    <tr><td>Neurology</td><td>007</td><td>James Lee</td><td class="examining">Being Examined</td><td>Urgent</td><td>10 mins</td></tr>
+                    <tr><td>Neurology</td><td>008</td><td>Linda Taylor</td><td class="waiting">Waiting</td><td>Emergency</td><td>30 mins</td></tr>
+                    <!-- Orthopedics Department -->
+                    <tr><td>Orthopedics</td><td>009</td><td>Robert Martinez</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Orthopedics</td><td>010</td><td>Jennifer Anderson</td><td class="waiting">Waiting</td><td>Routine</td><td>40 mins</td></tr>
+                    <!-- Internal Medicine Department -->
+                    <tr><td>Internal Medicine</td><td>011</td><td>William Thomas</td><td class="examining">Being Examined</td><td>Urgent</td><td>5 mins</td></tr>
+                    <tr><td>Internal Medicine</td><td>012</td><td>Jessica Harris</td><td class="waiting">Waiting</td><td>Emergency</td><td>50 mins</td></tr>
+                    <!-- Dermatology Department -->
+                    <tr><td>Dermatology</td><td>013</td><td>Charles Clark</td><td class="waiting">Waiting</td><td>Routine</td><td>15 mins</td></tr>
+                    <tr><td>Dermatology</td><td>014</td><td>Patricia Lewis</td><td class="examining">Being Examined</td><td>Routine</td><td>20 mins</td></tr>
+                    <!-- ENT Department -->
+                    <tr><td>ENT</td><td>015</td><td>Daniel Walker</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>ENT</td><td>016</td><td>Maria Young</td><td class="waiting">Waiting</td><td>Routine</td><td>10 mins</td></tr>
+                    <!-- Gastroenterology Department -->
+                    <tr><td>Gastroenterology</td><td>017</td><td>Matthew Hall</td><td class="examining">Being Examined</td><td>Urgent</td><td>8 mins</td></tr>
+                    <tr><td>Gastroenterology</td><td>018</td><td>Laura Allen</td><td class="waiting">Waiting</td><td>Emergency</td><td>35 mins</td></tr>
+                    <!-- Endocrinology Department -->
+                    <tr><td>Endocrinology</td><td>019</td><td>Joshua King</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Endocrinology</td><td>020</td><td>Angela Scott</td><td class="waiting">Waiting</td><td>Routine</td><td>20 mins</td></tr>
+                    <!-- Pediatrics Department -->
+                    <tr><td>Pediatrics</td><td>021</td><td>Ryan Wright</td><td class="examining">Being Examined</td><td>Urgent</td><td>12 mins</td></tr>
+                    <tr><td>Pediatrics</td><td>022</td><td>Elizabeth Green</td><td class="waiting">Waiting</td><td>Emergency</td><td>45 mins</td></tr>
+                    <!-- Urology Department -->
+                    <tr><td>Urology</td><td>023</td><td>Kevin Adams</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Urology</td><td>024</td><td>Jessica Nelson</td><td class="waiting">Waiting</td><td>Routine</td><td>25 mins</td></tr>
+                    <!-- Rheumatology Department -->
+                    <tr><td>Rheumatology</td><td>025</td><td>Steven Carter</td><td class="examining">Being Examined</td><td>Urgent</td><td>7 mins</td></tr>
+                    <tr><td>Rheumatology</td><td>026</td><td>Anna Mitchell</td><td class="waiting">Waiting</td><td>Emergency</td><td>40 mins</td></tr>
+                    <!-- Pulmonology Department -->
+                    <tr><td>Pulmonology</td><td>027</td><td>Brian Perez</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Pulmonology</td><td>028</td><td>Sarah Roberts</td><td class="waiting">Waiting</td><td>Routine</td><td>30 mins</td></tr>
+                    <!-- Allergy Department -->
+                    <tr><td>Allergy</td><td>029</td><td>Christopher Evans</td><td class="examining">Being Examined</td><td>Urgent</td><td>6 mins</td></tr>
+                    <tr><td>Allergy</td><td>030</td><td>Amanda Murphy</td><td class="waiting">Waiting</td><td>Emergency</td><td>50 mins</td></tr>
+                    <!-- Oncological Department -->
+                    <tr><td>Oncology</td><td>031</td><td>John Robinson</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Oncology</td><td>032</td><td>Emily Walker</td><td class="waiting">Waiting</td><td>Routine</td><td>35 mins</td></tr>
+                    <!-- Geriatrics Department -->
+                    <tr><td>Geriatrics</td><td>033</td><td>Robert Martinez</td><td class="examining">Being Examined</td><td>Urgent</td><td>9 mins</td></tr>
+                    <tr><td>Geriatrics</td><td>034</td><td>Olivia Wright</td><td class="waiting">Waiting</td><td>Emergency</td><td>55 mins</td></tr>
+                    <!-- Obstetrics Department -->
+                    <tr><td>Obstetrics</td><td>035</td><td>David Davis</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Obstetrics</td><td>036</td><td>Jessica Clark</td><td class="waiting">Waiting</td><td>Routine</td><td>45 mins</td></tr>
+                    <!-- Hematology Department -->
+                    <tr><td>Hematology</td><td>037</td><td>James Anderson</td><td class="examining">Being Examined</td><td>Urgent</td><td>11 mins</td></tr>
+                    <tr><td>Hematology</td><td>038</td><td>Isabella Lee</td><td class="waiting">Waiting</td><td>Emergency</td><td>60 mins</td></tr>
+                    <!-- Immunology Department -->
+                    <tr><td>Immunology</td><td>039</td><td>Thomas Lewis</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Immunology</td><td>040</td><td>Emily Carter</td><td class="waiting">Waiting</td><td>Routine</td><td>25 mins</td></tr>
+                    <!-- Nephrology Department -->
+                    <tr><td>Nephrology</td><td>041</td><td>Daniel Scott</td><td class="examining">Being Examined</td><td>Urgent</td><td>14 mins</td></tr>
+                    <tr><td>Nephrology</td><td>042</td><td>Grace Hill</td><td class="waiting">Waiting</td><td>Emergency</td><td>70 mins</td></tr>
+                    <!-- Psychiatry Department -->
+                    <tr><td>Psychiatry</td><td>043</td><td>Matthew Green</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Psychiatry</td><td>044</td><td>Madison Collins</td><td class="waiting">Waiting</td><td>Routine</td><td>30 mins</td></tr>
+                    <!-- Surgery Department -->
+                    <tr><td>Surgery</td><td>045</td><td>Anthony White</td><td class="examining">Being Examined</td><td>Urgent</td><td>13 mins</td></tr>
+                    <tr><td>Surgery</td><td>046</td><td>Emma Evans</td><td class="waiting">Waiting</td><td>Emergency</td><td>65 mins</td></tr>
+                    <!-- Radiology Department -->
+                    <tr><td>Radiology</td><td>047</td><td>Henry Adams</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Radiology</td><td>048</td><td>Charlotte Turner</td><td class="waiting">Waiting</td><td>Routine</td><td>50 mins</td></tr>
+                    <!-- Pathology Department -->
+                    <tr><td>Pathology</td><td>049</td><td>Oliver Mitchell</td><td class="examining">Being Examined</td><td>Urgent</td><td>12 mins</td></tr>
+                    <tr><td>Pathology</td><td>050</td><td>Sophia Carter</td><td class="waiting">Waiting</td><td>Emergency</td><td>75 mins</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="OPD" class="tabcontent">
+            <h2>OPD Queue</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OPD</th>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Estimated Wait Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Rows for OPD -->
+                    <!-- General OPD -->
+                    <tr><td>General OPD</td><td>051</td><td>Lisa Murphy</td><td class="waiting">Waiting</td><td>Routine</td><td>15 mins</td></tr>
+                    <tr><td>General OPD</td><td>052</td><td>George Hall</td><td class="examining">Being Examined</td><td>Routine</td><td>10 mins</td></tr>
+                    <!-- Specialty OPD -->
+                    <tr><td>Specialty OPD</td><td>053</td><td>Nancy Lewis</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Specialty OPD</td><td>054</td><td>Paul Allen</td><td class="waiting">Waiting</td><td>Routine</td><td>20 mins</td></tr>
+                    <!-- Pediatric OPD -->
+                    <tr><td>Pediatric OPD</td><td>055</td><td>Deborah Allen</td><td class="examining">Being Examined</td><td>Urgent</td><td>5 mins</td></tr>
+                    <tr><td>Pediatric OPD</td><td>056</td><td>Steven Young</td><td class="waiting">Waiting</td><td>Routine</td><td>25 mins</td></tr>
+                    <!-- Gynecology OPD -->
+                    <tr><td>Gynecology OPD</td><td>057</td><td>Anna Scott</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Gynecology OPD</td><td>058</td><td>Richard Wright</td><td class="waiting">Waiting</td><td>Routine</td><td>35 mins</td></tr>
+                    <!-- Orthopedic OPD -->
+                    <tr><td>Orthopedic OPD</td><td>059</td><td>Karen Harris</td><td class="examining">Being Examined</td><td>Urgent</td><td>8 mins</td></tr>
+                    <tr><td>Orthopedic OPD</td><td>060</td><td>Jeffrey King</td><td class="waiting">Waiting</td><td>Routine</td><td>45 mins</td></tr>
+                    <!-- Cardiology OPD -->
+                    <tr><td>Cardiology OPD</td><td>061</td><td>Joseph Turner</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Cardiology OPD</td><td>062</td><td>Hannah Green</td><td class="waiting">Waiting</td><td>Routine</td><td>30 mins</td></tr>
+                    <!-- Neurology OPD -->
+                    <tr><td>Neurology OPD</td><td>063</td><td>Barbara Mitchell</td><td class="examining">Being Examined</td><td>Urgent</td><td>12 mins</td></tr>
+                    <tr><td>Neurology OPD</td><td>064</td><td>Paul Lewis</td><td class="waiting">Waiting</td><td>Routine</td><td>40 mins</td></tr>
+                    <!-- Dermatology OPD -->
+                    <tr><td>Dermatology OPD</td><td>065</td><td>Emily Walker</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Dermatology OPD</td><td>066</td><td>David Robinson</td><td class="waiting">Waiting</td><td>Routine</td><td>55 mins</td></tr>
+                    <!-- Pulmonology OPD -->
+                    <tr><td>Pulmonology OPD</td><td>067</td><td>Linda Adams</td><td class="examining">Being Examined</td><td>Urgent</td><td>7 mins</td></tr>
+                    <tr><td>Pulmonology OPD</td><td>068</td><td>Edward Evans</td><td class="waiting">Waiting</td><td>Routine</td><td>50 mins</td></tr>
+                    <!-- Allergy OPD -->
+                    <tr><td>Allergy OPD</td><td>069</td><td>Laura Martin</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Allergy OPD</td><td>070</td><td>Christopher Moore</td><td class="waiting">Waiting</td><td>Routine</td><td>60 mins</td></tr>
+                    <!-- Oncological OPD -->
+                    <tr><td>Oncology OPD</td><td>071</td><td>Richard Carter</td><td class="examining">Being Examined</td><td>Urgent</td><td>10 mins</td></tr>
+                    <tr><td>Oncology OPD</td><td>072</td><td>Jessica Lewis</td><td class="waiting">Waiting</td><td>Routine</td><td>35 mins</td></tr>
+                    <!-- Geriatrics OPD -->
+                    <tr><td>Geriatrics OPD</td><td>073</td><td>William Wilson</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Geriatrics OPD</td><td>074</td><td>Anna Mitchell</td><td class="waiting">Waiting</td><td>Routine</td><td>50 mins</td></tr>
+                    <!-- Obstetrics OPD -->
+                    <tr><td>Obstetrics OPD</td><td>075</td><td>James Allen</td><td class="examining">Being Examined</td><td>Urgent</td><td>8 mins</td></tr>
+                    <tr><td>Obstetrics OPD</td><td>076</td><td>Linda Harris</td><td class="waiting">Waiting</td><td>Routine</td><td>45 mins</td></tr>
+                    <!-- Hematology OPD -->
+                    <tr><td>Hematology OPD</td><td>077</td><td>Daniel Thomas</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Hematology OPD</td><td>078</td><td>Jessica White</td><td class="waiting">Waiting</td><td>Routine</td><td>40 mins</td></tr>
+                    <!-- Immunology OPD -->
+                    <tr><td>Immunology OPD</td><td>079</td><td>Samuel Baker</td><td class="examining">Being Examined</td><td>Urgent</td><td>9 mins</td></tr>
+                    <tr><td>Immunology OPD</td><td>080</td><td>Ashley Scott</td><td class="waiting">Waiting</td><td>Routine</td><td>30 mins</td></tr>
+                    <!-- Nephrology OPD -->
+                    <tr><td>Nephrology OPD</td><td>081</td><td>Elizabeth Walker</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Nephrology OPD</td><td>082</td><td>John Johnson</td><td class="waiting">Waiting</td><td>Routine</td><td>50 mins</td></tr>
+                    <!-- Psychiatry OPD -->
+                    <tr><td>Psychiatry OPD</td><td>083</td><td>Sarah Wilson</td><td class="examining">Being Examined</td><td>Urgent</td><td>7 mins</td></tr>
+                    <tr><td>Psychiatry OPD</td><td>084</td><td>Paul Harris</td><td class="waiting">Waiting</td><td>Routine</td><td>35 mins</td></tr>
+                    <!-- Surgery OPD -->
+                    <tr><td>Surgery OPD</td><td>085</td><td>Emily Wilson</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Surgery OPD</td><td>086</td><td>Michael Thomas</td><td class="waiting">Waiting</td><td>Routine</td><td>60 mins</td></tr>
+                    <!-- Radiology OPD -->
+                    <tr><td>Radiology OPD</td><td>087</td><td>Linda Scott</td><td class="examining">Being Examined</td><td>Urgent</td><td>10 mins</td></tr>
+                    <tr><td>Radiology OPD</td><td>088</td><td>James Walker</td><td class="waiting">Waiting</td><td>Routine</td><td>40 mins</td></tr>
+                    <!-- Pathology OPD -->
+                    <tr><td>Pathology OPD</td><td>089</td><td>Lisa Allen</td><td class="discharged">Discharged</td><td>Routine</td><td>-</td></tr>
+                    <tr><td>Pathology OPD</td><td>090</td><td>George Harris</td><td class="waiting">Waiting</td><td>Routine</td><td>70 mins</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

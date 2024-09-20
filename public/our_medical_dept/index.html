@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Department | Integrated Healthcare System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        .header {
+            background-color: #005b99;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro-section {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .intro-section h2 {
+            color: #005b99;
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .service-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .service-box {
+            flex-basis: 30%;
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-box i {
+            font-size: 3em;
+            color: #005b99;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .service-box p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            background-color: #005b99;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        .cta-section h2 {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-section a {
+            background-color: #fff;
+            color: #005b99;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-section a:hover {
+            background-color: #ffdc00;
+        }
+
+        @media (max-width: 768px) {
+            .service-box {
+                flex-basis: 45%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-box {
+                flex-basis: 100%;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .intro-section h2 {
+                font-size: 1.7em;
+            }
+
+            .cta-section h2 {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Medical Department</h1>
+        <p>Your Health is Our Priority</p>
+    </div>
+
+    <div class="main-container">
+        <section class="intro-section">
+            <h2>Comprehensive Medical Services</h2>
+            <p>We offer a wide range of medical services to address all of your healthcare needs. Our dedicated team of
+                doctors, specialists, and support staff ensure that you receive the best care possible. From general
+                health consultations to advanced medical treatments, we are here for you every step of the way.</p>
+        </section>
+
+        <section class="service-container">
+            <div class="service-box">
+                <i class="fas fa-stethoscope"></i>
+                <h3>General Medicine</h3>
+                <p>Our general medicine department provides routine checkups and expert medical consultations for all
+                    age groups.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Cardiology</h3>
+                <p>Specialized care for heart-related conditions, including diagnosis, treatment, and preventive care.
+                </p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-x-ray"></i>
+                <h3>Radiology</h3>
+                <p>Our state-of-the-art imaging technologies help in diagnosing a wide range of conditions with
+                    precision.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-user-md"></i>
+                <h3>Specialists</h3>
+                <p>Access to various medical specialists for advanced treatments and second opinions on complex cases.
+                </p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-syringe"></i>
+                <h3>Vaccination</h3>
+                <p>We offer all essential vaccinations for children, adults, and elderly patients to prevent various
+                    diseases.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-ambulance"></i>
+                <h3>Emergency Care</h3>
+                <p>24/7 emergency medical services with a highly responsive team ready to attend to critical situations.
+                </p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Schedule Your Appointment Today</h2>
+            <p>Don’t wait for tomorrow when it comes to your health. Schedule an appointment with our top doctors and
+                specialists today.</p>
+            <a href="#">Book Now</a>
+        </section>
+    </div>
+
+</body>
+
+</html>

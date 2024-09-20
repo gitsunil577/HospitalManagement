@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Supplies Management - IHMS Portal</title>
+    <style>
+        /* Typography and Colors */
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4567b7;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2196f3;
+        }
+        /* Layout and Grid */
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Box Styling */
+        
+        .box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        button {
+            background-color: #4567b7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #2196f3;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f4f4f4;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Office Supplies Management - IHMS Portal</h1>
+    </header>
+
+    <div class="container">
+        <!-- Inventory Management Column -->
+        <section class="box">
+            <h2>1. Inventory Management</h2>
+            <button onclick="viewSupplies()">View Supplies Catalog</button>
+            <button onclick="trackStock()">Track Stock Levels</button>
+            <button onclick="setReorderAlerts()">Set Reorder Alerts</button>
+            <button onclick="supplierInfo()">Supplier Information</button>
+        </section>
+
+        <!-- Procurement Management Column -->
+        <section class="box">
+            <h2>2. Procurement Management</h2>
+            <button onclick="createPurchaseOrder()">Create Purchase Order</button>
+            <button onclick="trackOrder()">Order Tracking</button>
+            <button onclick="manageInvoices()">Invoice Management</button>
+            <button onclick="trackBudget()">Budget Tracking</button>
+        </section>
+
+        <!-- Usage Tracking Column -->
+        <section class="box">
+            <h2>3. Usage Tracking</h2>
+            <button onclick="viewUsageLogs()">View Usage Logs</button>
+            <button onclick="trackDepartmentUsage()">Departmental Usage</button>
+        </section>
+
+        <!-- Reporting and Analysis Column -->
+        <section class="box">
+            <h2>4. Reporting and Analysis</h2>
+            <button onclick="generateReports()">Generate Inventory Reports</button>
+            <button onclick="analyzeCosts()">Cost Analysis</button>
+            <button onclick="viewUsageTrends()">Usage Trends</button>
+        </section>
+
+        <!-- Request Management Column -->
+        <section class="box">
+            <h2>5. Request Management</h2>
+            <button onclick="requestSupplies()">Request Supplies</button>
+            <button onclick="approveRequests()">Approval Workflow</button>
+            <button onclick="trackRequests()">Track Supply Requests</button>
+        </section>
+
+        <!-- Integration Column -->
+        <section class="box">
+            <h2>6. Integration</h2>
+            <button onclick="syncWithEHR()">Sync with EHR</button>
+            <button onclick="syncWithERP()">Sync with ERP</button>
+            <button onclick="viewIntegrationLogs()">View Integration Logs</button>
+            <button onclick="configureAPIs()">Configure APIs</button>
+        </section>
+
+        <!-- Security and Compliance Column -->
+        <section class="box">
+            <h2>7. Security and Compliance</h2>
+            <button onclick="manageAccess()">Role-Based Access Control</button>
+            <button onclick="viewAuditTrails()">View Audit Trails</button>
+            <button onclick="enableEncryption()">Enable Data Encryption</button>
+            <button onclick="complianceReports()">Generate Compliance Reports</button>
+        </section>
+
+        <!-- User Experience Enhancements Column -->
+        <section class="box">
+            <h2>8. User Experience Enhancements</h2>
+            <button onclick="searchSupplies()">Search Supplies</button>
+            <button onclick="setAlerts()">Customizable Alerts</button>
+            <p>Mobile access available for supply management on-the-go.</p>
+        </section>
+
+        <!-- Training and Support Column -->
+        <section class="box">
+            <h2>9. Training and Support</h2>
+            <button onclick="viewUserGuides()">Access User Guides</button>
+            <button onclick="requestTraining()">Request Training</button>
+            <button onclick="contactSupport()">Contact Technical Support</button>
+            <button onclick="faqSection()">View FAQs</button>
+        </section>
+
+        <!-- Advanced Features Column -->
+        <section class="box">
+            <h2>10. Advanced Features</h2>
+            <button onclick="automatedReordering()">Automated Reordering</button>
+            <button onclick="rateSuppliers()">Supplier Ratings</button>
+            <p>Barcode scanning for efficient inventory management.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Office Supplies Management - IHMS Portal</p>
+    </footer>
+
+    <script>
+        // Placeholder functions for buttons, each function can be extended for real data manipulation
+        function viewSupplies() {
+            alert("Viewing supplies catalog...");
+        }
+
+        function trackStock() {
+            alert("Tracking stock levels...");
+        }
+
+        function setReorderAlerts() {
+            alert("Setting reorder alerts...");
+        }
+
+        function supplierInfo() {
+            alert("Showing supplier information...");
+        }
+
+        function createPurchaseOrder() {
+            alert("Creating purchase order...");
+        }
+
+        function trackOrder() {
+            alert("Tracking order...");
+        }
+
+        function manageInvoices() {
+            alert("Managing invoices...");
+        }
+
+        function trackBudget() {
+            alert("Tracking budget...");
+        }
+
+        function viewUsageLogs() {
+            alert("Viewing usage logs...");
+        }
+
+        function trackDepartmentUsage() {
+            alert("Tracking departmental usage...");
+        }
+
+        function generateReports() {
+            alert("Generating inventory reports...");
+        }
+
+        function analyzeCosts() {
+            alert("Analyzing costs...");
+        }
+
+        function viewUsageTrends() {
+            alert("Viewing usage trends...");
+        }
+
+        function requestSupplies() {
+            alert("Requesting supplies...");
+        }
+
+        function approveRequests() {
+            alert("Approving supply requests...");
+        }
+
+        function trackRequests() {
+            alert("Tracking requests...");
+        }
+
+        function searchSupplies() {
+            alert("Searching supplies...");
+        }
+
+        function setAlerts() {
+            alert("Setting customizable alerts...");
+        }
+
+        function automatedReordering() {
+            alert("Automated reordering initiated...");
+        }
+
+        function rateSuppliers() {
+            alert("Rating suppliers...");
+        }
+
+        function syncWithEHR() {
+            alert("Syncing with EHR system...");
+        }
+
+        function syncWithERP() {
+            alert("Syncing with ERP system...");
+        }
+
+        function viewIntegrationLogs() {
+            alert("Viewing integration logs...");
+        }
+
+        function configureAPIs() {
+            alert("Configuring APIs...");
+        }
+
+        function manageAccess() {
+            alert("Managing role-based access...");
+        }
+
+        function viewAuditTrails() {
+            alert("Viewing audit trails...");
+        }
+
+        function enableEncryption() {
+            alert("Enabling data encryption...");
+        }
+
+        function complianceReports() {
+            alert("Generating compliance reports...");
+        }
+
+        function viewUserGuides() {
+            alert("Accessing user guides...");
+        }
+
+        function requestTraining() {
+            alert("Requesting training...");
+        }
+
+        function contactSupport() {
+            alert("Contacting technical support...");
+        }
+
+        function faqSection() {
+            alert("Viewing FAQs...");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Store</title>
+</head>
+<body>
+    <h1>Welcome to the Medicine Store</h1>
+
+    <!-- Search Form -->
+    <form action="/search" method="POST">
+        <label for="medicine">Search for Medicines:</label>
+        <input type="text" id="medicine" name="medicine" placeholder="Enter medicine name">
+        <input type="submit" value="Search">
+    </form>
+
+    <h2>Cart</h2>
+    <ul id="cart"></ul>
+
+    <form action="/checkout" method="POST">
+        <input type="submit" value="Checkout">
+    </form>
+</body>
+</html>

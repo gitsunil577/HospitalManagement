@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - IHMS</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        .text-muted-foreground {
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-blue-600 py-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl text-white font-bold">Integrated Hospital Management System (IHMS)</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto py-12 px-4">
+        <h1 class="text-4xl font-bold text-center mb-12">About Us</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Objective Card -->
+            <div class="card bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Objective</h3>
+                <p class="text-muted-foreground">
+                    IHMS aims to revolutionize hospital operations and patient care by creating a unified, technology-driven healthcare management system. Our platform optimizes queuing models in Outpatient Departments (OPDs), streamlines bed availability and patient admissions, and enhances inventory management.
+                </p>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="card bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Vision</h3>
+                <p class="text-muted-foreground">
+                    We envision a world where healthcare is accessible, efficient, and seamless, regardless of location. By integrating hospital networks, optimizing resource allocation, and using predictive models, IHMS strives to create a future where patients receive timely, high-quality care with minimal wait times.
+                </p>
+            </div>
+
+            <!-- Digitalization Card -->
+            <div class="card bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Digitalization</h3>
+                <p class="text-muted-foreground">
+                    IHMS harnesses the power of digital transformation to automate critical aspects of healthcare management. From online consultations and telemedicine to real-time tracking of bed availability, patient admissions, and inventory, our platform uses advanced algorithms to ensure that healthcare services are more responsive.
+                </p>
+            </div>
+
+            <!-- One-Stop Solution Card -->
+            <div class="card bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">One-Stop Solution</h3>
+                <p class="text-muted-foreground">
+                    IHMS serves as a one-stop solution for hospitals, providing a comprehensive platform that supports the entire patient journey— from initial symptoms, consultations, and prescriptions to admission, treatment, and discharge.
+                </p>
+            </div>
+
+            <!-- Architecture Card -->
+            <div class="card bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Architecture</h3>
+                <p class="text-muted-foreground">
+                    The architecture of IHMS is built around a modular, scalable framework that allows hospitals to manage both local and citywide operations seamlessly. Key features include OPD Queuing Systems, Bed Availability Management, Admission Protocols, and Citywide Integration.
+                </p>
+            </div>
+
+            <!-- IHMS Model Objectives Card -->
+            <div class="card bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">IHMS Model Objectives</h3>
+                <p class="text-muted-foreground">
+                    Our model's core objective is to provide a digital healthcare ecosystem that maximizes efficiency, reduces patient waiting times, and enhances healthcare outcomes. By offering a patient-centered platform, IHMS enables optimal healthcare delivery even in high-demand situations.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 py-6 text-center text-white">
+        <p>&copy; 2024 IHMS - All Rights Reserved</p>
+    </footer>
+
+    <!-- Optional JS Animations (e.g., Scroll Reveal or Animate.css) -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.card', {
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out',
+        });
+    </script>
+</body>
+</html>

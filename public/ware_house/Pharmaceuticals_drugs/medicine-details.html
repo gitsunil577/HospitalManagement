@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        table {
+            width: 60%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        
+        th,
+        td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Medicine Details</h1>
+    </header>
+    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Supply Receive Date</th>
+                <th>Expiry Date</th>
+                <th>Requirement</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="medicine-name">--</td>
+                <td>2023-05-15</td>
+                <td>2025-05-15</td>
+                <td>50</td>
+                <td>100</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer>
+        <p>&copy; 2024 Pharmaceuticals & Drugs Management</p>
+    </footer>
+
+    <script>
+        // JavaScript to get medicine name from URL query string and display on the page
+        const params = new URLSearchParams(window.location.search);
+        const medicineName = params.get('name');
+        document.getElementById('medicine-name').textContent = medicineName;
+    </script>
+</body>
+
+</html>

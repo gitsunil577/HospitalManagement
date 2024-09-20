@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHMS Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Regstyle.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2>Register for IHMS</h2>
+            <form action='/register' method="post"  onsubmit="return validatePassword();">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter Full Name" required>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="sex">Sex</label>
+                    <select id="sex" name="sex" required>
+                        <option value="" disabled selected>Select Sex</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" pattern="[0-9]{10}" required>
+                </div>
+
+
+                <div style="position: relative; display: inline-block;" class="input-group">
+                    <label for="crepass">Create a Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" style="padding-right: 30px;">
+                    <i class="fa fa-eye" id="togglePassword" style="position: absolute; right: 10px; top: 75%; transform: translateY(-50%); cursor: pointer;"></i>
+                  </div>
+                  
+                <div class="input-group">
+                    <label for="cnfpswd">Confirm password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                </div>
+                <!-- <div class="input-group captcha">
+                    <label for="captcha">Captcha</label>
+                    <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha" required>
+                    <img src="captcha-image.png" alt="Captcha" class="captcha-img">
+                </div> -->
+    
+            <span class="error-message" id="errorMessage">Passwords do not match!</span>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <div class="login-link">
+                Already have an account? <a href="logpage.html">Login</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+    // Toggle the type attribute
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    
+    // Toggle the eye / eye-slash icon
+    this.classList.toggle("fa-eye-slash");
+  });
+
+        // Validate if passwords match
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                // Show an alert if passwords don't match
+                alert("Passwords do not match!");
+                
+                // Show an error message and prevent form submission
+                document.getElementById("errorMessage").style.display = 'block';
+                return false;  // Prevent form submission
+            } else {
+                document.getElementById("errorMessage").style.display = 'none';
+                return true;   // Allow form submission
+            }
+        }
+
+  </script>
