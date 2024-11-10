@@ -10,8 +10,8 @@
     "razorpay": "^2.9.4",
     "stripe": "^16.10.0",
     "twilio": "^5.3.0"
-  }
+  },
   "scripts": {
-  "start": "node server.js"
-}
+    "start": "node server.js"
+  }
 }
