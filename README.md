@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ├── .gitignore
 ├── .vscode
     └── settings.json
@@ -134,3 +135,9 @@
     │       └── streilization.jpeg
     │   └── styles.css
 └── server.js
+=======
+To run a local server use command:-    npm server.js
+search localhost:3000
+
+deploy url:- https://hospitalmanagement-daxg.onrender.com
+>>>>>>> d5380db6117a64ea69cf1f73420b98d786733eff
