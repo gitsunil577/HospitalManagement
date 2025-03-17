@@ -3,12 +3,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const path = require('path');
-const nodemailer = require('nodemailer');
 const axios = require('axios');
+const Razorpay = require('razorpay');
+const crypto = require('crypto');
+const fs = require('fs');
+require('dotenv').config();
 
 const app = express();
-require('dotenv').config();
-//const otpRoutes = require('./otpController'); // Import your router file
 
 // Use body-parser to parse POST request data
 app.use(express.static(path.join(__dirname, 'public')));
@@ -16,10 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/customerDB', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+
+mongoose.connect('mongodb://localhost:27017/customberDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log('MongoDB Connected to localhost'))
+    .catch(err => console.log('MongoDB Connection Error:', err));
+
 
 // Define a Schema and Model for Customer
 const customerSchema = new mongoose.Schema({
@@ -29,22 +34,18 @@ const customerSchema = new mongoose.Schema({
     mobile: String,
     password: String
 });
-
 const Customer = mongoose.model('Customer', customerSchema);
 
 // Serve static files (HTML, CSS)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
-
 app.get('/stylelogpage.css', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'stylelogpage.css'));
 });
-
 app.get('/success.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'success.html'));
 });
-
 app.get('/accessdenied.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'accessdenied.html'));
 });
@@ -55,10 +56,10 @@ app.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newCustomer = new Customer({
-        fullname: fullname,
-        sex: sex,
-        dob: dob,
-        mobile: mobile,
+        fullname,
+        sex,
+        dob,
+        mobile,
         password: hashedPassword
     });
 
@@ -73,13 +74,12 @@ app.post('/register', async (req, res) => {
 // Login route
 app.post('/login', async (req, res) => {
     const { fullname, password, 'g-recaptcha-response': recaptchaResponse } = req.body;
-    const secretKey = '6LeX8j0qAAAAAEalQQfMSgA8WAhj5iR4ur25uxnd'; // Replace with your actual secret key
+    const secretKey = process.env.RECAPTCHA_SECRET;
 
     // Verify CAPTCHA
     const verificationUrl = `https://www.google.com/recaptcha/api/siteverify`;
 
     try {
-        // Send CAPTCHA verification request
         const captchaVerification = await axios.post(verificationUrl, null, {
             params: {
                 secret: secretKey,
@@ -87,27 +87,21 @@ app.post('/login', async (req, res) => {
             },
         });
 
-        // Check if CAPTCHA is not successful
         if (!captchaVerification.data.success) {
             return res.status(400).redirect('/accessdenied.html');
         }
 
-        // Find the user in the database
-        const foundUser = await Customer.findOne({ fullname: fullname });
+        const foundUser = await Customer.findOne({ fullname });
 
-        // If user is not found, redirect to access denied
         if (!foundUser) {
             return res.status(404).redirect('/accessdenied.html');
         }
 
-        // Check if the password matches
         const isMatch = await bcrypt.compare(password, foundUser.password);
 
-        // If password is correct, redirect to index page
         if (isMatch) {
             return res.status(200).redirect('/index.html');
         } else {
-            // If password doesn't match, redirect to access denied
             return res.status(401).redirect('/accessdenied.html');
         }
     } catch (err) {
@@ -115,24 +109,12 @@ app.post('/login', async (req, res) => {
         res.status(500).send('An error occurred during login');
     }
 });
-// Use OTP routes
-//app.use('/api', otpRoutes); // Make sure the path matches the routes in otpRoutes.js
-
-// Start the server
-const Razorpay = require('razorpay');
-const crypto = require('crypto');
-const fs = require('fs');
-
-app.use(bodyParser.json());
 
 // Setup Razorpay
 const razorpay = new Razorpay({
     key_id: "rzp_test_s4VCEeosHiS3ZO",
     key_secret: "jX2DZDjwpONTwpcAOU77cMJw"
 });
-
-// Serve static files (if needed)
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Create order endpoint
 app.post('/create-order', async (req, res) => {
@@ -163,7 +145,7 @@ app.post('/create-order', async (req, res) => {
     }
 });
 
-// Example endpoint to read a CSV file (if needed)
+// Read CSV file
 app.get('/meddata', (req, res) => {
     const filePath = path.join(__dirname, 'data', 'meddata.csv');
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -174,6 +156,18 @@ app.get('/meddata', (req, res) => {
         res.send(data);
     });
 });
+
+// Define Schema for Prescription if not done already
+const prescriptionSchema = new mongoose.Schema({
+    patient: String,
+    doctor: String,
+    diagnosis: String,
+    medicines: Array,
+    date: { type: Date, default: Date.now }
+});
+const Prescription = mongoose.model('Prescription', prescriptionSchema);
+
+// Save prescription
 app.post('/submit-prescription', (req, res) => {
     const { patient, doctor, diagnosis, medicines } = req.body;
 
@@ -181,7 +175,7 @@ app.post('/submit-prescription', (req, res) => {
         patient,
         doctor,
         diagnosis,
-        medicines, // Add medicine details as an array
+        medicines,
         date: new Date()
     });
 
@@ -194,9 +188,8 @@ app.post('/submit-prescription', (req, res) => {
         });
 });
 
-
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
