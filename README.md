@@ -29,8 +29,13 @@ The Hospital Management System (HMS) is a web-based frontend application designe
 - CSS3
 - JavaScript (ES6)
 
+## Website
+- <a href="https://hospitalmanagement-daxg.onrender.com/">Website</a>
+
 ## 📷 Preview
 ![Screenshot 2025-06-28 001155](https://github.com/user-attachments/assets/7013f70a-169c-4117-85a3-f388d98c4662)
+
+
 
 
 
